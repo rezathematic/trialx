@@ -1,5 +1,8 @@
 import Head from "next/head";
 
+// View imports
+import Overview from "@/views/overview/Overview";
+
 export default function Home() {
   return (
     <>
@@ -10,8 +13,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <h1 className="text-4xl font-bold">Overview</h1>
+      <div className="w-full px-8">
+        <Overview />
       </div>
     </>
   );
