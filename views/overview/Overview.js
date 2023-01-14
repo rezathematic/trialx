@@ -5,6 +5,7 @@ import Grid from "@/components/utils/Grid";
 // View imports
 import CardTrialInfo from "@/views/overview/CardTrialInfo";
 import CardSampleInfo from "@/views/overview/CardSampleInfo";
+import CardAdr from "@/views/overview/CardAdr";
 
 export default function Overview() {
   return (
@@ -13,6 +14,7 @@ export default function Overview() {
       <Grid>
         <CardTrialInfo />
         <CardSampleInfo />
+        <CardAdr />
       </Grid>
     </>
   );
