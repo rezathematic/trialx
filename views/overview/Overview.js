@@ -6,6 +6,7 @@ import Grid from "@/components/utils/Grid";
 import CardTrialInfo from "@/views/overview/CardTrialInfo";
 import CardSampleInfo from "@/views/overview/CardSampleInfo";
 import CardAdr from "@/views/overview/CardAdr";
+import CardAntibody from "@/views/overview/CardAntibody";
 
 export default function Overview() {
   return (
@@ -15,6 +16,7 @@ export default function Overview() {
         <CardTrialInfo />
         <CardSampleInfo />
         <CardAdr />
+        <CardAntibody />
       </Grid>
     </>
   );
