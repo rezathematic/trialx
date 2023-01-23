@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Patient Model
+model Patient {
+  uid           Int                    @id @default(autoincrement())
+  basicInfo     PatientBasicInfo?
+  adr           PatientADR?
+  bloodPressure PatientBloodPressure[]
+  temperature   PatientTemperature[]
+  antibody      PatientAntibody[]
+  allergy       PatientAllergy[]
+}
+
+model PatientBasicInfo {
+  firstName String
+  lastName  String
+  sex       String
+  age       Int
+  weight    Float
+  phone     String
+  email     String   @unique
+  status    String   @default("Healthy")
+  image     String?
+  createdAt DateTime @default(now())
+  patient   Patient  @relation(fields: [patientId], references: [uid])
+  patientId Int      @unique
+}
+
+model PatientADR {
+  bronchitis  Boolean @default(false)
+  diarrhea    Boolean @default(false)
+  pharyngitis Boolean @default(false)
+  pruritus    Boolean @default(false)
+  rash        Boolean @default(false)
+  rhinitis    Boolean @default(false)
+  urticaria   Boolean @default(false)
+  patient     Patient @relation(fields: [patientId], references: [uid])
+  patientId   Int     @unique
+}
+
+model PatientBloodPressure {
+  id        Int      @id @default(autoincrement())
+  systolic  Int
+  diastolic Int
+  date      DateTime @default(now())
+  patient   Patient  @relation(fields: [patientId], references: [uid])
+  patientId Int
+}
+
+model PatientTemperature {
+  id          Int      @id @default(autoincrement())
+  temperature Float
+  date        DateTime @default(now())
+  patient     Patient  @relation(fields: [patientId], references: [uid])
+  patientId   Int
+}
+
+model PatientAntibody {
+  id        Int      @id @default(autoincrement())
+  igg       Float
+  igm       Float
+  date      DateTime @default(now())
+  patient   Patient  @relation(fields: [patientId], references: [uid])
+  patientId Int
+}
+
+model PatientAllergy {
+  id        Int     @id @default(autoincrement())
+  allergy   String
+  severity  String
+  patient   Patient @relation(fields: [patientId], references: [uid])
+  patientId Int
+}
