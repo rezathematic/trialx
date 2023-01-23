@@ -5,7 +5,10 @@ import PatientStatus from "@/components/patients/basicInfo/PatientStatus";
 import PatientTable from "@/components/patients/basicInfo/PatientTable";
 
 export default function CardBasicInfo({ patient }) {
-  const { name, image, status } = patient;
+  const {
+    basicInfo: { firstName, lastName, status, image },
+  } = patient;
+  const name = `${firstName} ${lastName}`;
 
   return (
     <div className="flex flex-col rounded-md border border-slate-100 bg-white p-4 shadow-lg shadow-slate-200">
