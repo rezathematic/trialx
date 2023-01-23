@@ -1,22 +1,38 @@
 import { useState } from "react";
+import Router from "next/router";
+
+// Component Imports
+import { Button } from "@/components/utils/Buttons";
+
+// Lib Imports
+import { removeUnderscoreStartCase } from "@/lib/utils";
 
 export default function PatientADR({ patient }) {
-  const [adr, setAdr] = useState({
-    rash: false,
-    urticaria: false,
-    diarrhea: false,
-    pruritus: false,
-    pharyngitis: false,
-    bronchitis: false,
-    rhinitis: false,
-  });
+  const id = patient.uid;
+  const [adr, setAdr] = useState({ ...patient.adr });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleAdrChange = (e) => {
     setAdr({ ...adr, [e.target.name]: e.target.checked });
   };
 
-  const handleAdrSave = () => {
-    console.log(adr);
+  const handleAdrSave = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const body = { id, adr };
+      await fetch("/api/patients/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      Router.reload();
+    } catch (error) {
+      setIsLoading(false);
+      console.error(error);
+    }
   };
 
   return (
@@ -37,17 +53,19 @@ export default function PatientADR({ patient }) {
                 className="cursor-pointer"
               />
               <label className="ml-2 cursor-pointer" htmlFor={key}>
-                {key}
+                {removeUnderscoreStartCase(key)}
               </label>
             </div>
           );
         })}
-        <button
+        <Button
           onClick={handleAdrSave}
-          className="mt-3 rounded-md bg-blue-600 py-2 px-4 text-white"
+          variant="primary"
+          className="mt-3"
+          isLoading={isLoading}
         >
           Save
-        </button>
+        </Button>
       </div>
     </>
   );
