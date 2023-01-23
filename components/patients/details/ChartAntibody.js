@@ -8,46 +8,19 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import dayjs from "dayjs";
 
-const data = [
-  {
-    date: "Jan, 12",
-    IgM: 40.0,
-    IgG: 24.0,
-  },
-  {
-    date: "Jan, 13",
-    IgM: 30.0,
-    IgG: 13.98,
-  },
-  {
-    date: "Jan, 14",
-    IgM: 20.0,
-    IgG: 98.0,
-  },
-  {
-    date: "Jan, 15",
-    IgM: 27.8,
-    IgG: 39.0,
-  },
-  {
-    date: "Jan, 16",
-    IgM: 18.9,
-    IgG: 48.0,
-  },
-  {
-    date: "Jan, 17",
-    IgM: 23.9,
-    IgG: 38.0,
-  },
-  {
-    date: "Jan, 18",
-    IgM: 34.9,
-    IgG: 43.0,
-  },
-];
+export default function ChartAntibody({ patient }) {
+  const { antibody } = patient;
 
-export default function ChartAntibody() {
+  const data = antibody.map((item) => {
+    return {
+      IgM: item.igm,
+      IgG: item.igg,
+      date: dayjs(item.date).format("MMM, DD"),
+    };
+  });
+
   return (
     <div>
       <h2 className="text-xl font-semibold tracking-wide text-slate-700">
