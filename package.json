@@ -9,14 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.9.10",
+    "@mui/material": "^5.11.5",
     "@next/font": "13.1.2",
+    "@prisma/client": "^4.9.0",
+    "dayjs": "^1.11.7",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
     "next": "13.1.2",
+    "prisma": "^4.9.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.42.1",
     "recharts": "^2.3.2",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
