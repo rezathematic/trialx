@@ -8,46 +8,19 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import dayjs from "dayjs";
 
-const data = [
-  {
-    date: "Jan, 12",
-    systolic: 120,
-    diastolic: 80,
-  },
-  {
-    date: "Jan, 13",
-    systolic: 130,
-    diastolic: 90,
-  },
-  {
-    date: "Jan, 14",
-    systolic: 140,
-    diastolic: 100,
-  },
-  {
-    date: "Jan, 15",
-    systolic: 130,
-    diastolic: 100,
-  },
-  {
-    date: "Jan, 16",
-    systolic: 130,
-    diastolic: 90,
-  },
-  {
-    date: "Jan, 17",
-    systolic: 120,
-    diastolic: 80,
-  },
-  {
-    date: "Jan, 18",
-    systolic: 120,
-    diastolic: 80,
-  },
-];
+export default function ChartBP({ patient }) {
+  const { bloodPressure } = patient;
 
-export default function ChartBP() {
+  const data = bloodPressure.map((item) => {
+    return {
+      date: dayjs(item.date).format("MMM, DD"),
+      systolic: item.systolic,
+      diastolic: item.diastolic,
+    };
+  });
+
   return (
     <div className="flex h-full w-full flex-col">
       <h2 className="text-xl font-semibold tracking-wide text-slate-700">

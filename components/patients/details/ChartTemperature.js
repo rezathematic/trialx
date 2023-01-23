@@ -8,39 +8,18 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import dayjs from "dayjs";
 
-const data = [
-  {
-    date: "Jan, 12",
-    temperature: 100,
-  },
-  {
-    date: "Jan, 13",
-    temperature: 101,
-  },
-  {
-    date: "Jan, 14",
-    temperature: 96,
-  },
-  {
-    date: "Jan, 15",
-    temperature: 97,
-  },
-  {
-    date: "Jan, 16",
-    temperature: 96,
-  },
-  {
-    date: "Jan, 17",
-    temperature: 97,
-  },
-  {
-    date: "Jan, 18",
-    temperature: 96,
-  },
-];
+export default function ChartTemperature({ patient }) {
+  const { temperature } = patient;
 
-export default function ChartTemperature() {
+  const data = temperature.map((item) => {
+    return {
+      temperature: item.temperature,
+      date: dayjs(item.date).format("MMM, DD"),
+    };
+  });
+
   return (
     <div className="flex h-full w-full flex-col">
       <h2 className="text-xl font-semibold tracking-wide text-slate-700">
