@@ -1,5 +1,8 @@
+import Link from "next/link";
+
 export default function PatientTable(props) {
-  const { id, sex, age, weight } = props;
+  const id = props.uid;
+  const { sex, age, weight, phone, email } = props.basicInfo;
 
   return (
     <table className="mt-2 border-separate border-spacing-1">
@@ -19,6 +22,18 @@ export default function PatientTable(props) {
         <tr>
           <td className="font-medium text-slate-600">Weight</td>
           <td>{weight} kg</td>
+        </tr>
+        <tr>
+          <td className="font-medium text-slate-600">Phone</td>
+          <td>
+            <Link href={`tel:${phone}`}>{phone}</Link>
+          </td>
+        </tr>
+        <tr>
+          <td className="font-medium text-slate-600">Email</td>
+          <td>
+            <Link href={`mailto:${email}`}>{email}</Link>
+          </td>
         </tr>
       </tbody>
     </table>
