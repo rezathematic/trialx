@@ -1,40 +1,13 @@
 import Head from "next/head";
 
+// Lib Imports
+import { getAllPatientsBasicInfo } from "@/lib/api";
+import { serializeJSON } from "@/lib/utils";
+
 // View imports
 import Patients from "@/views/patients/Patients";
 
-// dummy data
-const patients = [
-  {
-    id: 1,
-    name: "Sara Smith",
-    image: "/assets/images/patient-1.jpg",
-    status: "Healthy",
-    sex: "Female",
-    age: 25,
-    phone: "123-456-7890",
-  },
-  {
-    id: 2,
-    name: "John Smith",
-    image: "/assets/images/patient-2.jpg",
-    status: "Healthy",
-    sex: "Male",
-    age: 27,
-    phone: "123-456-7890",
-  },
-  {
-    id: 3,
-    name: "John Doe",
-    image: null,
-    status: "Healthy",
-    sex: "Male",
-    age: 24,
-    phone: "123-456-7890",
-  },
-];
-
-export default function PatientsPage() {
+export default function PatientsPage({ patients }) {
   return (
     <>
       <Head>
@@ -49,4 +22,10 @@ export default function PatientsPage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const patients = await getAllPatientsBasicInfo();
+
+  return { props: { patients: serializeJSON(patients) }, revalidate: 1 };
 }
