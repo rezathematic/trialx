@@ -1,9 +1,9 @@
 import ChartAntibody from "@/components/overview/ChartAntibody";
 
-export default function CardSampleInfo() {
+export default function CardSampleInfo({ antibodyData }) {
   return (
     <>
-      <ChartAntibody />
+      <ChartAntibody data={antibodyData} />
     </>
   );
 }

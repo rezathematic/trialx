@@ -9,20 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  {
-    date: "Adverse Drug Reaction",
-    Rash: 11,
-    Urticaria: 10,
-    Diarrhea: 9,
-    Pruritus: 8,
-    Pharyngitis: 7,
-    Bronchitis: 7,
-    Rhinitis: 7,
-  },
-];
-
-export default function ChartAdr() {
+export default function ChartAdr({ data }) {
   return (
     <div className="col-span-12 lg:col-span-6">
       <div className="flex h-full w-full flex-col rounded-lg border border-slate-100 bg-white py-8 px-4 shadow-lg">
@@ -34,7 +21,7 @@ export default function ChartAdr() {
             <BarChart
               width={500}
               height={300}
-              data={data}
+              data={Array.isArray(data) ? data : [data]}
               margin={{
                 top: 5,
                 right: 30,
@@ -43,12 +30,12 @@ export default function ChartAdr() {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
+              <XAxis dataKey="adr" />
               <YAxis />
               <Tooltip />
               <Legend />
-              {Object.keys(data[0]).map((key) => {
-                if (key !== "date") {
+              {Object.keys(data).map((key) => {
+                if (key !== "patientId") {
                   return <Bar key={key} dataKey={key} fill="#8884d8" />;
                 }
               })}

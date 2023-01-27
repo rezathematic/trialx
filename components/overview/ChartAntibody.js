@@ -9,45 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  {
-    date: "Jan, 12",
-    IgM: 4000,
-    IgG: 2400,
-  },
-  {
-    date: "Jan, 13",
-    IgM: 3000,
-    IgG: 1398,
-  },
-  {
-    date: "Jan, 14",
-    IgM: 2000,
-    IgG: 9800,
-  },
-  {
-    date: "Jan, 15",
-    IgM: 2780,
-    IgG: 3908,
-  },
-  {
-    date: "Jan, 16",
-    IgM: 1890,
-    IgG: 4800,
-  },
-  {
-    date: "Jan, 17",
-    IgM: 2390,
-    IgG: 3800,
-  },
-  {
-    date: "Page G",
-    IgM: 3490,
-    IgG: 4300,
-  },
-];
-
-export default function ChartAntibody() {
+export default function ChartAntibody({ data }) {
   return (
     <div className="col-span-12 lg:col-span-6">
       <div className="flex h-full w-full flex-col rounded-lg border border-slate-100 bg-white py-8 px-4 shadow-lg">
