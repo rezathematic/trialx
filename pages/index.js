@@ -28,6 +28,8 @@ export async function getServerSideProps() {
   const patients = await prisma.patient.findMany({
     include: {
       basicInfo: true,
+      antibody: true,
+      adr: true,
     },
   });
 
