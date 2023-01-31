@@ -15,7 +15,7 @@ export default function PatientCard({ patient }) {
   const name = `${firstName} ${lastName}`;
 
   return (
-    <div className="flex aspect-[16/9] flex-col rounded-md border border-slate-100 bg-white p-4 shadow-lg shadow-slate-200 transition duration-300 hover:scale-105 xl:col-span-2">
+    <div className="col-span-full flex aspect-[16/9] flex-col rounded-md border border-slate-100 bg-white p-4 shadow-lg shadow-slate-200 transition duration-300 hover:scale-105 sm:col-span-6 md:col-span-4 xl:col-span-3">
       <Link href={`/patients/${id}`}>
         <div className="flex">
           <PatientCardAvatar src={image} name={name} />
