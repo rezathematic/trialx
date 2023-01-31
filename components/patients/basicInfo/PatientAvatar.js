@@ -8,7 +8,7 @@ export default function PatientAvatar({ src, name }) {
         alt={name}
         width={100}
         height={100}
-        className="h-full w-full rounded-sm object-cover shadow-sm"
+        className="h-full max-h-60 w-full rounded-sm object-cover shadow-sm"
       />
     </div>
   );

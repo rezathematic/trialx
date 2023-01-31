@@ -20,14 +20,14 @@ export default function Details({ patient }) {
           <CreateRecordModal id={patient.uid} />
         </div>
       </div>
-      <Grid>
-        <div className="col-span-10 grid grid-cols-12">
+      <Grid className="gap-4 pb-12">
+        <div className="order-2 col-span-full grid grid-cols-12 gap-4 md:order-1 md:col-span-6 lg:col-span-9">
           <CardBP patient={patient} />
           <CardTemperature patient={patient} />
-          <CardADR patient={patient} />
           <CardAntibody patient={patient} />
+          <CardADR patient={patient} />
         </div>
-        <div className="col-span-2">
+        <div className="order-1 col-span-full md:order-2 md:col-span-6 lg:col-span-3">
           <CardBasicInfo patient={patient} />
           <CardAllergy patient={patient} />
         </div>
