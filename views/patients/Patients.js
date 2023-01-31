@@ -15,7 +15,7 @@ export default function Patients({ patients }) {
           <AddPatientModal />
         </div>
       </div>
-      <Grid>
+      <Grid className="gap-4 pb-12">
         {patients.map((patient, i) => (
           <CardPatient key={i} patient={patient} />
         ))}
