@@ -25,7 +25,7 @@ export default function Overview({ trial }) {
   return (
     <>
       <PageTitle>Overview</PageTitle>
-      <Grid>
+      <Grid className="gap-4 pb-12">
         <CardTrialInfo />
         <CardSampleInfo sampleData={genderCountData} />
         <CardGenderInfo genderData={genderDateData} />

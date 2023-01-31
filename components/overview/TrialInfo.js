@@ -20,11 +20,11 @@ export default function TrialInfo() {
         </h2>
         <div className="mt-8 flex flex-col">
           {Object.keys(trialInfo).map((key) => (
-            <div className="mb-4 flex" key={key}>
-              <h3 className="min-w-[150px] font-medium text-slate-700">
+            <div className="mb-4 flex flex-col sm:flex-row" key={key}>
+              <h3 className="mt-2 font-medium text-slate-700 sm:mt-0 sm:min-w-[150px]">
                 {removeUnderscoreStartCase(key)}
               </h3>
-              <p className="ml-6 font-light tracking-wide text-slate-700">
+              <p className="font-light tracking-wide text-slate-700 sm:ml-6">
                 {trialInfo[key]}
               </p>
             </div>
