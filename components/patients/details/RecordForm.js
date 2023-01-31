@@ -201,7 +201,7 @@ export const AddNewPatient = ({ handleSave }) => {
     <form
       onSubmit={handleSubmit((data) => handleSave({ ...data, image: avatar }))}
     >
-      <div className="grid w-full grid-cols-2 gap-4">
+      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
         {avatar && (
           <div className="relative col-span-full block h-16 w-16">
             <Image

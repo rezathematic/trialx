@@ -71,7 +71,7 @@ export default function CreateRecordModal({ id }) {
         aria-labelledby="modal-create-blood-pressure"
         aria-describedby="modal-create-new-blood-pressure"
       >
-        <div className="absolute top-[50%] left-[50%] flex h-[70vh] w-1/2 -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-scroll bg-white p-6 shadow-md">
+        <div className="absolute top-[50%] left-[50%] flex h-screen w-full -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-scroll bg-white p-6 shadow-md md:h-[85vh] md:w-[90vw] lg:h-[70vh] lg:w-1/2">
           {loading ? (
             <div className="flex h-full flex-col items-center justify-center">
               <Spinner />
