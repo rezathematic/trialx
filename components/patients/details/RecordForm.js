@@ -1,4 +1,12 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
+import cuid from "cuid";
+
+// Lib Imports
+import { s3 } from "@/lib/s3";
+
+const bucket = process.env.NEXT_PUBLIC_TRIALX_BUCKET_NAME;
 
 // Component Imports
 import { Button } from "@/components/utils/Buttons";
@@ -159,10 +167,68 @@ export const AddNewPatient = ({ handleSave }) => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [avatar, setAvatar] = useState(null);
+
+  // handlers
+  const handleImageChange = async (e) => {
+    setAvatar(null);
+    const image = await e.target.files[0];
+    let formData = new FormData();
+    formData.append("image", image);
+    formData.append("id", cuid());
+
+    const key = `${formData.get("id")}-${formData.get("image").name}`;
+
+    const params = {
+      Bucket: bucket,
+      Key: key,
+      Body: formData.get("image"),
+      ACL: "public-read",
+      ContentType: formData.get("image").type,
+    };
+
+    const response = await s3.putObject(params).promise();
+
+    if (response.$response.error) {
+      console.log(response.$response.error);
+      return;
+    }
+
+    setAvatar(`https://${bucket}.s3.amazonaws.com/${key}`);
+  };
 
   return (
-    <form onSubmit={handleSubmit(handleSave)}>
+    <form
+      onSubmit={handleSubmit((data) => handleSave({ ...data, image: avatar }))}
+    >
       <div className="grid w-full grid-cols-2 gap-4">
+        {avatar && (
+          <div className="relative col-span-full block h-16 w-16">
+            <Image
+              src={avatar}
+              alt="avatar"
+              className="absolute top-0 left-0 h-full w-full object-cover"
+              width={64}
+              height={64}
+            />
+          </div>
+        )}
+        {/* Image */}
+        <div className="flex flex-col">
+          <label
+            htmlFor="image"
+            className="mb-1 block text-xs font-medium tracking-wide text-gray-700"
+          >
+            Image
+          </label>
+          <input
+            type="file"
+            accept="image/png, image/jpeg"
+            className="mb-4 block rounded-md border border-slate-300 px-2 py-2"
+            {...register("image", { required: false })}
+            onChange={handleImageChange}
+          />
+        </div>
         {/* First Name */}
         <div className="flex flex-col">
           <label
