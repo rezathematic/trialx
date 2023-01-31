@@ -1,7 +1,7 @@
 export const Patients = () => {
   return (
     <svg width="30" height="30" viewBox="0 0 30 30" role="presentation">
-      <g fill="currentColor" fill-rule="evenodd">
+      <g fill="currentColor" fillRule="evenodd">
         <circle cx="16" cy="9" r="3"></circle>
         <circle cx="8" cy="6" r="3"></circle>
         <path d="M11 15c0-1.105.887-2 2-2h6c1.105 0 2 .885 2 2v3.73c0 3.027-10 3.027-10 0V15z"></path>
