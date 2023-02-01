@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 // Lib imports
-import { getAllPatientsPaths, getPatientDetails } from "@/lib/api";
+import { getPatientDetails } from "@/lib/api";
 import { serializeJSON } from "@/lib/utils";
 
 // View imports
@@ -28,18 +28,8 @@ export default function PatientDetails({ patient }) {
   );
 }
 
-export async function getStaticPaths() {
-  const patients = await getAllPatientsPaths();
-
-  const paths = patients.map((patient) => ({
-    params: { id: patient.uid.toString() },
-  }));
-
-  return { paths, fallback: "blocking" };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const patient = await getPatientDetails(params.id);
 
-  return { props: { patient: serializeJSON(patient) }, revalidate: 1 };
+  return { props: { patient: serializeJSON(patient) } };
 }

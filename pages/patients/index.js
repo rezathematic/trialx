@@ -24,8 +24,7 @@ export default function PatientsPage({ patients }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const patients = await getAllPatientsBasicInfo();
-
-  return { props: { patients: serializeJSON(patients) }, revalidate: 1 };
+  return { props: { patients: serializeJSON(patients) } };
 }
