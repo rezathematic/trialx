@@ -52,7 +52,7 @@ export default function ChartTemperature({ patient }) {
                 <Line
                   type="monotone"
                   dataKey="temperature"
-                  stroke="#82ca9d"
+                  stroke="#003f5c"
                   unit=" ℉"
                 />
               </LineChart>

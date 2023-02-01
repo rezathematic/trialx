@@ -9,6 +9,17 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const colors = {
+  bronchitis: "#003f5c",
+  diarrhea: "#2f4b7c",
+  pharyngitis: "#665191",
+  pruritus: "#a05195",
+  rash: "#d45087",
+  rhinitis: "#f95d6a",
+  urticaria: "#ff7c43",
+  patientId: "#ffa600",
+};
+
 export default function ChartAdr({ data }) {
   return (
     <div className="col-span-12 lg:col-span-6">
@@ -36,7 +47,7 @@ export default function ChartAdr({ data }) {
               <Legend />
               {Object.keys(data).map((key) => {
                 if (key !== "patientId") {
-                  return <Bar key={key} dataKey={key} fill="#8884d8" />;
+                  return <Bar key={key} dataKey={key} fill={colors[key]} />;
                 }
               })}
             </BarChart>

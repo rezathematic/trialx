@@ -17,7 +17,7 @@ export default function ChartSampleInfo({ data }) {
         <h2 className="text-xl font-semibold tracking-wide text-slate-700">
           Sample&apos;s Gender Distribution
         </h2>
-        <div className="mt-8 h-full w-full">
+        <div className="mt-8 h-[300px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               width={500}
@@ -35,8 +35,8 @@ export default function ChartSampleInfo({ data }) {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="Male" stackId="a" fill="#8884d8" />
-              <Bar dataKey="Female" stackId="a" fill="#82ca9d" />
+              <Bar dataKey="Male" stackId="a" fill="#003f5c" />
+              <Bar dataKey="Female" stackId="a" fill="#bc5090" />
             </BarChart>
           </ResponsiveContainer>
         </div>

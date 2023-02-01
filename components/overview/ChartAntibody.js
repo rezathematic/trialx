@@ -37,10 +37,10 @@ export default function ChartAntibody({ data }) {
               <Line
                 type="monotone"
                 dataKey="IgG"
-                stroke="#8884d8"
+                stroke="#003f5c"
                 activeDot={{ r: 8 }}
               />
-              <Line type="monotone" dataKey="IgM" stroke="#82ca9d" />
+              <Line type="monotone" dataKey="IgM" stroke="#bc5090" />
             </LineChart>
           </ResponsiveContainer>
         </div>

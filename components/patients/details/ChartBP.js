@@ -53,13 +53,13 @@ export default function ChartBP({ patient }) {
                 <Line
                   type="monotone"
                   dataKey="systolic"
-                  stroke="#82ca9d"
+                  stroke="#003f5c"
                   unit="mmhg"
                 />
                 <Line
                   type="monotone"
                   dataKey="diastolic"
-                  stroke="#8884d8"
+                  stroke="#bc5090"
                   activeDot={{ r: 8 }}
                   unit="mmhg"
                 />
