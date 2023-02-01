@@ -37,7 +37,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar user={session.user} />
-      <main className="ml-20">{children}</main>
+      <main className="-mx-3 md:mr-0 md:ml-20">{children}</main>
     </>
   );
 }
