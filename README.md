@@ -4,7 +4,7 @@
 
 ## Mission Statement
 
-Pharmaceutical companies require to manage the drug trials they are conducting. The system should allow to create and manage drug trials, and to assign patients to trials. The system should also allow to manage patients and their medical records.
+Pharmaceutical companies require to manage the drug trials they are conducting. The system allows the creation and management of clinical trials and adding patients. The system also provides the ability to manage patients and their medical records.
 This project is active on [TrialX](https://trialx.vercel.app/) if you want to check it out.
 
 ## Features
