@@ -14,9 +14,9 @@ import CardAntibody from "@/views/details/CardAntibody";
 export default function Details({ patient }) {
   return (
     <>
-      <div className="relative">
+      <div className="sm:relative">
         <PageTitle>Patient Details</PageTitle>
-        <div className="absolute top-0 right-0">
+        <div className="absolute top-3 right-4 sm:top-0 sm:right-0">
           <CreateRecordModal id={patient.uid} />
         </div>
       </div>
