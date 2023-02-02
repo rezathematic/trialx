@@ -7,6 +7,8 @@
 Pharmaceutical companies require to manage the drug trials they are conducting. The system allows the creation and management of clinical trials and adding patients. The system also provides the ability to manage patients and their medical records.
 This project is active on [TrialX](https://trialx.vercel.app/) if you want to check it out.
 
+**You can see the application walk through video from here: [TrialX Loom](https://www.loom.com/share/1e81601c8d4e4f068ed184a2644de333)**
+
 ## Features
 
 - Overview of the drug trial and its patients
